@@ -1,0 +1,8 @@
+.git*
+.DS_Store
+.idea/
+atlassian-ide-plugin.xml
+build/
+test/
+.travis.yml
+Gruntfile.js
