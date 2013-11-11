@@ -11,7 +11,7 @@
 ## Documentation
 
 You can use this appender like all other log4js-node appenders. It just needs the connection-string to the mongo db. ([mongodb connection-string doku](http://docs.mongodb.org/manual/reference/connection-string/))
-The default collection used is log.
+The default collection used is log. You can log a `string` or any kind of `object`. The objects are stored as they are and not converted to strings.
 
 ```js
 var log4js = require('log4js'),
@@ -29,26 +29,86 @@ logger.info('Cheese is Gouda.');
 logger.warn('Cheese is quite smelly.');
 logger.error('Cheese is too ripe!');
 logger.fatal('Cheese was breeding ground for listeria.');
+
+// log objects
+logger.info({id: 1, name: &#39;wayne&#39;});
+logger.info([1, 2, 3]);
 ```
 
-Or you can use the configure method
+Or you can use the configure method.
 
 ```js
 var log4js = require('log4js');
+
+log4js.configure({
+    appenders: [
+        {
+            type: 'console'
+        },
+        {
+            type: 'log4js-node-mongodb',
+            connectionString: 'localhost:27017/logs',
+            category: 'cheese'
+        }
+    ]
+});
+```
+
+The log data is stored in the following format.
+
+```js
+{
+    _id: ObjectID,
+    timestamp: loggingEvent.startTime,
+    data: loggingEvent.data,
+    level: loggingEvent.level,
+    category: loggingEvent.logger.category
+}
+```
+
+Here some examples.
+
+```js
+var log4js = require('log4js'),
     mongoAppender = require('log4js-node-mongodb');
 
-    log4js.configure({
-        appenders: [
-            {
-                type: 'console'
-            },
-            {
-                type: 'log4js-node-mongodb',
-                connectionString: 'localhost:27017/logs',
-                category: 'cheese'
-            }
-        ]
-    });
+log4js.addAppender(
+    mongoAppender.appender(
+        {connectionString: 'localhost:27017/logs'}),
+    'audit'
+);
+
+var logger = log4js.getLogger('audit');
+logger.debug('Hello %s, your are the %d user logged in!', 'wayne', 10);
+
+// saved as
+{
+    _id: new ObjectID(),
+    timestamp: new Date(),
+    data: 'Hello wayne, your are the 10 user logged in!',
+    level: {
+        level: 10000,
+        levelStr: 'DEBUG'
+    },
+    category: 'audit'
+}
+
+logger.info({id: 1, name: 'wayne'});
+
+// saved as
+{
+    _id: new ObjectID(),
+    timestamp: new Date(),
+    data: {
+        id: 1,
+        name: 'wayne'
+    },
+    level: {
+        level: 20000,
+        levelStr: 'INFO'
+    },
+    category: 'audit'
+}
 ```
 
 ### Configuration
