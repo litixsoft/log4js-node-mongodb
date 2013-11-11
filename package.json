@@ -1,5 +1,5 @@
 {
-    "name": "lx-node-mongodb",
+    "name": "log4js-node-mongodb",
     "description": "A log4js-node log appender to write logs into MongoDB.",
     "version": "0.1.0",
     "homepage": "https://github.com/litixsoft/log4js-node-mongodb",
