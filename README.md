@@ -1,21 +1,26 @@
-# log4js-node-mongodb [![Build Status](https://travis-ci.org/litixsoft/log4js-node-mongodb.png?branch=master)](https://travis-ci.org/litixsoft/log4js-node-mongodb) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb.png)](https://david-dm.org/litixsoft/log4js-node-mongodb/) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb/dev-status.png)](https://david-dm.org/litixsoft/log4js-node-mongodb#info=devDependencies&view=table)
+# log4js-node-mongodb
 
 > A log4js-node log appender to write logs into MongoDB.
 
-## Install:
+> [![Build Status](https://travis-ci.org/litixsoft/log4js-node-mongodb.png?branch=master)](https://travis-ci.org/litixsoft/log4js-node-mongodb) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb.png)](https://david-dm.org/litixsoft/log4js-node-mongodb/) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb/dev-status.png)](https://david-dm.org/litixsoft/log4js-node-mongodb#info=devDependencies&view=table)
+
+## Install
 
 [![NPM](https://nodei.co/npm/log4js-node-mongodb.png??downloads=true&stars=true)](https://nodei.co/npm/log4js-node-mongodb/)
 
 ## Documentation
 
-You can use this appender like all other log4js-node appenders. It just needs the connection-string to the mongo db. [mongodb connection-string doku](http://docs.mongodb.org/manual/reference/connection-string/)
+You can use this appender like all other log4js-node appenders. It just needs the connection-string to the mongo db. ([mongodb connection-string doku](http://docs.mongodb.org/manual/reference/connection-string/))
 The default collection used is log.
 
 ```js
 var log4js = require('log4js'),
     mongoAppender = require('log4js-node-mongodb');
 
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({connectionString: 'localhost:27017/logs'}),
+    'cheese'
+);
 
 var logger = log4js.getLogger('cheese');
 logger.trace('Entering cheese testing');
@@ -34,8 +39,14 @@ var log4js = require('log4js');
 
     log4js.configure({
         appenders: [
-            { type: 'console' },
-            { type: 'log4js-node-mongodb', connectionString: 'localhost:27017/logs', category: 'cheese' }
+            {
+                type: 'console'
+            },
+            {
+                type: 'log4js-node-mongodb',
+                connectionString: 'localhost:27017/logs',
+                category: 'cheese'
+            }
         ]
     });
 ```
@@ -56,7 +67,10 @@ Default value |
 var log4js = require('log4js'),
     mongoAppender = require('log4js-node-mongodb');
 
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({connectionString: 'localhost:27017/logs'}),
+    'cheese'
+);
 ```
 
 #### collectionName
@@ -72,7 +86,13 @@ Default value | `'log'`
 var log4js = require('log4js'),
     mongoAppender = require('log4js-node-mongodb');
 
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs', collectionName: 'audit'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({
+        connectionString: 'localhost:27017/logs',
+        collectionName: 'audit'
+    }),
+    'cheese'
+);
 ```
 
 #### write
@@ -97,17 +117,32 @@ var log4js = require('log4js'),
     mongoAppender = require('log4js-node-mongodb');
 
 // fast write mode
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({connectionString: 'localhost:27017/logs'},
+    'cheese'
+);
 
 // normal write mode
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs', write: 'normal'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({
+        connectionString: 'localhost:27017/logs',
+        write: 'normal'
+    },
+    'cheese'
+);
 
 // safe write mode
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs', write: 'safe'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({
+        connectionString: 'localhost:27017/logs',
+        write: 'safe'
+    },
+    'cheese'
+);
 ```
 
 #### layout
-The log4js-node layout which is used when logging a string. [log4js-node layouts](https://github.com/nomiddlename/log4js-node/wiki/Layouts)
+The log4js-node layout which is used when logging a string. ([log4js-node layouts](https://github.com/nomiddlename/log4js-node/wiki/Layouts))
 
 * | *
 --- | ---
@@ -119,7 +154,13 @@ Default value | `'messagePassThroughLayout'`
 var log4js = require('log4js'),
     mongoAppender = require('log4js-node-mongodb');
 
-log4js.addAppender(mongoAppender.appender({connectionString: 'localhost:27017/logs', layout: 'colored'}, 'cheese');
+log4js.addAppender(
+    mongoAppender.appender({
+        connectionString: 'localhost:27017/logs',
+        layout: 'colored'
+    },
+    'cheese'
+);
 ```
 
 ## Contributing
