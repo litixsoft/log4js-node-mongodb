@@ -75,6 +75,6 @@
     },
     "dependencies": {
         "log4js": "~0.6.9",
-        "lx-mongodb": "~0.4.7"
+        "mongojs": "~0.9.6"
     }
 }
