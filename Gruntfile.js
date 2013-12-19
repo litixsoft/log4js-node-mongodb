@@ -6,6 +6,7 @@ module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
+        jshintFiles: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
         clean: {
             jasmine: ['build/jasmine'],
             reports: ['build/reports'],
@@ -13,33 +14,16 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                bitwise: true,
-                curly: true,
-                eqeqeq: true,
-                forin: true,
-                immed: true,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                noempty: true,
-                nonew: true,
-                regexp: true,
-                undef: true,
-                unused: true,
-                indent: 4,
-                quotmark: 'single',
-                node: true,
-                globals: {
-                }
+                jshintrc: true
             },
-            test: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
+            test: '<%= jshintFiles %>',
             jslint: {
                 options: {
                     reporter: 'jslint',
                     reporterOutput: 'build/reports/jshint.xml'
                 },
                 files: {
-                    src: ['Gruntfile.js', 'lib/**/.js', 'test/**/*.js']
+                    src: '<%= jshintFiles %>'
                 }
             },
             checkstyle: {
@@ -48,7 +32,7 @@ module.exports = function (grunt) {
                     reporterOutput: 'build/reports/jshint_checkstyle.xml'
                 },
                 files: {
-                    src: ['Gruntfile.js', 'lib/**/.js', 'test/**/*.js']
+                    src: '<%= jshintFiles %>'
                 }
             }
         },

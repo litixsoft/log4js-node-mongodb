@@ -1,8 +1,9 @@
 .git*
 .DS_Store
 .idea/
+.jshintrc
+.travis.yml
 atlassian-ide-plugin.xml
+Gruntfile.js
 build/
 test/
-.travis.yml
-Gruntfile.js
