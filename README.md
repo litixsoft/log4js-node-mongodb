@@ -227,6 +227,9 @@ log4js.addAppender(
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
 
 ## Release History
+### v0.1.1
+* Safely check if the log message is a string
+
 ### v0.1.0 project initial
 
 ## Author

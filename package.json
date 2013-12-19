@@ -1,7 +1,7 @@
 {
     "name": "log4js-node-mongodb",
     "description": "A log4js-node log appender to write logs into MongoDB.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage": "https://github.com/litixsoft/log4js-node-mongodb",
     "repository": {
         "type": "git",
