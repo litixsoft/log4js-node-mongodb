@@ -45,6 +45,24 @@ describe('log4js-node-mongoappender', function () {
         }, 100);
     });
 
+    it('should log an object to the mongo database and replace keys that contains $ or .', function (done) {
+        var db = mongojs(connectionString, ['log']);
+        log4js.addAppender(sut.configure({connectionString: 'localhost:27017/test_log4js_mongo'}));
+        log4js.getLogger().info({$and: [{'a.d': 3}, {$or: {a: 1}}], 'test.1.2': 5});
+
+        setTimeout(function () {
+            db.log.find({}, function (err, res) {
+                expect(err).toBeNull();
+                expect(res.length).toBe(1);
+                expect(res[0].category).toBe('[default]');
+                expect(res[0].data).toEqual({_dollar_and: [{a_dot_d: 3}, {_dollar_or: {a: 1}}], test_dot_1_dot_2: 5});
+                expect(res[0].level).toEqual({level: 20000, levelStr: 'INFO'});
+
+                done();
+            });
+        }, 500);
+    });
+
     it('should log to the mongo database with a given layout', function (done) {
         var db = mongojs(connectionString, ['log']);
         log4js.addAppender(sut.configure({connectionString: 'localhost:27017/test_log4js_mongo', layout: 'colored'}));

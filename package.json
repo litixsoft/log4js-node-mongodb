@@ -50,6 +50,7 @@
     },
     "dependencies": {
         "log4js": "^0.6.22",
+        "lx-helpers": "^0.5.1",
         "mongojs": "0.9.10"
     }
 }
