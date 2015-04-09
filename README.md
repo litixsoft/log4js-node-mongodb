@@ -227,6 +227,11 @@ log4js.addAppender(
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
 
 ## Release History
+### v0.1.2
+* replace keys when logging an object to prevent mongo exception
+* $ is converted to "_dollar_" (only replaced at start of key)
+* . is converted to "_dot_" (all occurrences are replaced)
+
 ### v0.1.1
 * Safely check if the log message is a string
 
