@@ -241,7 +241,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 [Litixsoft GmbH](http://www.litixsoft.de)
 
 ## License
-Copyright (C) 2013 Litixsoft GmbH <info@litixsoft.de>
+Copyright (C) 2013-2015 Litixsoft GmbH <info@litixsoft.de>
 Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
