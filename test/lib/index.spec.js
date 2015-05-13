@@ -42,7 +42,27 @@ describe('log4js-node-mongoappender', function () {
 
                 done();
             });
-        }, 100);
+        }, 500);
+    });
+
+    it('should log an object to the mongo database when initialized through the configure function', function (done) {
+        var db = mongojs(connectionString, ['log']);
+        log4js.addAppender(sut.configure({connectionString: 'localhost:27017/test_log4js_mongo'}));
+        log4js.getLogger().info({ok: 1, date: new Date(), regex: new RegExp('aaa', 'i')});
+
+        setTimeout(function () {
+            db.log.find({}, function (err, res) {
+                expect(err).toBeNull();
+                expect(res.length).toBe(1);
+                expect(res[0].category).toBe('[default]');
+                expect(res[0].data.ok).toBe(1);
+                expect(res[0].data.date instanceof Date).toBeTruthy();
+                expect(res[0].data.regex instanceof RegExp).toBeTruthy();
+                expect(res[0].level).toEqual({level: 20000, levelStr: 'INFO'});
+
+                done();
+            });
+        }, 500);
     });
 
     it('should log an object to the mongo database and replace keys that contains $ or .', function (done) {
@@ -168,6 +188,6 @@ describe('log4js-node-mongoappender', function () {
 
                 done();
             });
-        }, 100);
+        }, 1000);
     });
 });
