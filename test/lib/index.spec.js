@@ -67,16 +67,18 @@ describe('log4js-node-mongoappender', function () {
 
     it('should log an error object to the mongo database when initialized through the configure function', function (done) {
         var db = mongojs(connectionString, ['log']);
+        var error = new Error('wayne');
         log4js.addAppender(sut.configure({connectionString: 'localhost:27017/test_log4js_mongo'}));
-        log4js.getLogger().warn(new Error('wayne'));
+        log4js.getLogger().warn(error);
 
         setTimeout(function () {
             db.log.find({}, function (err, res) {
                 expect(err).toBeNull();
                 expect(res.length).toBe(1);
                 expect(res[0].category).toBe('[default]');
-                expect(res[0].data).toBe('Error: wayne');
+                expect(res[0].data).toEqual({name: 'Error: wayne', message: 'wayne'});
                 expect(res[0].level).toEqual({level: 30000, levelStr: 'WARN'});
+                expect(error instanceof Error).toBeTruthy();
 
                 done();
             });
