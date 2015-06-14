@@ -227,6 +227,9 @@ log4js.addAppender(
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
 
 ## Release History
+### v0.1.5
+* wrap Errors in a new object because otherwhise they are saved as an empty object {}
+
 ### v0.1.4
 * Errors are now saved as string (previously saved as empty object)
 
