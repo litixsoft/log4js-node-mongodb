@@ -51,6 +51,6 @@
     "dependencies": {
         "log4js": "^0.6.26",
         "lx-helpers": "^0.5.1",
-        "mongojs": "0.9.10"
+        "mongojs": "^2.3.0"
     }
 }
