@@ -1,7 +1,7 @@
 {
     "name": "log4js-node-mongodb",
     "description": "A log4js-node log appender to write logs into MongoDB.",
-    "version": "0.1.5",
+    "version": "1.0.0",
     "homepage": "https://github.com/litixsoft/log4js-node-mongodb",
     "repository": {
         "type": "git",
@@ -15,7 +15,8 @@
         "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>"
     ],
     "contributors": [
-        "Max Nachlinger"
+        "Max Nachlinger",
+        "Ilya Starostin"
     ],
     "keywords": [
         "log4js",

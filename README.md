@@ -2,11 +2,11 @@
 
 > A log4js-node log appender to write logs into MongoDB.
 
-> [![Build Status](https://travis-ci.org/litixsoft/log4js-node-mongodb.png?branch=master)](https://travis-ci.org/litixsoft/log4js-node-mongodb) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb.png)](https://david-dm.org/litixsoft/log4js-node-mongodb/) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb/dev-status.png)](https://david-dm.org/litixsoft/log4js-node-mongodb#info=devDependencies&view=table)
+> [![Build Status](https://travis-ci.org/litixsoft/log4js-node-mongodb.svg?branch=master)](https://travis-ci.org/litixsoft/log4js-node-mongodb) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb.svg)](https://david-dm.org/litixsoft/log4js-node-mongodb/) [![david-dm](https://david-dm.org/litixsoft/log4js-node-mongodb/dev-status.svg)](https://david-dm.org/litixsoft/log4js-node-mongodb#info=devDependencies&view=table)
 
 ## Install
 
-[![NPM](https://nodei.co/npm/log4js-node-mongodb.png??downloads=true&stars=true)](https://nodei.co/npm/log4js-node-mongodb/)
+[![NPM](https://nodei.co/npm/log4js-node-mongodb.png?downloads=true&stars=true)](https://nodei.co/npm/log4js-node-mongodb/)
 
 ## Documentation
 
@@ -227,6 +227,9 @@ log4js.addAppender(
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
 
 ## Release History
+### v1.0.0
+* add support for MongoDB 3.x
+
 ### v0.1.5
 * wrap Errors in a new object because otherwhise they are saved as an empty object {}
 
