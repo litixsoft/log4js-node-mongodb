@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         },
         bgShell: {
             coverage: {
-                cmd: 'node node_modules/istanbul/lib/cli.js cover --dir build/coverage node_modules/grunt-jasmine-node/node_modules/jasmine-node/bin/jasmine-node -- test --forceexit'
+                cmd: 'node node_modules/istanbul/lib/cli.js cover --dir build/coverage node_modules/jasmine-node/bin/jasmine-node -- test --forceexit'
             },
             cobertura: {
                 cmd: 'node node_modules/istanbul/lib/cli.js report --root build/coverage --dir build/coverage/cobertura cobertura'
