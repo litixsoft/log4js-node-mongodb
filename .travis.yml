@@ -2,10 +2,14 @@ sudo: false
 services:
   - mongodb
 language: node_js
+cache:
+  directories:
+    - node_modules
 node_js:
   - '0.10'
   - '0.12'
   - '4'
   - '5'
+  - '6'
 before_script:
   - npm install -g grunt-cli
