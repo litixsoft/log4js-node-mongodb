@@ -6,7 +6,7 @@
 
 ## Install
 
-[![NPM](https://nodei.co/npm/log4js-node-mongodb.png?downloads=true&stars=true)](https://nodei.co/npm/log4js-node-mongodb/)
+    $ npm install log4js-node-mongodb
 
 ## Documentation
 
@@ -14,8 +14,8 @@ You can use this appender like all other log4js-node appenders. It just needs th
 The default collection used is log. You can log a `string` or any kind of `object`. The objects are stored as they are and not converted to strings.
 
 ```js
-var log4js = require('log4js'),
-    mongoAppender = require('log4js-node-mongodb');
+var log4js = require('log4js');
+var mongoAppender = require('log4js-node-mongodb');
 
 log4js.addAppender(
     mongoAppender.appender({connectionString: 'localhost:27017/logs'}),
@@ -31,7 +31,7 @@ logger.error('Cheese is too ripe!');
 logger.fatal('Cheese was breeding ground for listeria.');
 
 // log objects
-logger.info({id: 1, name: &#39;wayne&#39;});
+logger.info({id: 1, name: 'wayne'});
 logger.info([1, 2, 3]);
 ```
 
@@ -178,7 +178,7 @@ var log4js = require('log4js'),
 
 // fast write mode
 log4js.addAppender(
-    mongoAppender.appender({connectionString: 'localhost:27017/logs'},
+    mongoAppender.appender({connectionString: 'localhost:27017/logs'}),
     'cheese'
 );
 
@@ -187,7 +187,7 @@ log4js.addAppender(
     mongoAppender.appender({
         connectionString: 'localhost:27017/logs',
         write: 'normal'
-    },
+    }),
     'cheese'
 );
 
@@ -196,7 +196,7 @@ log4js.addAppender(
     mongoAppender.appender({
         connectionString: 'localhost:27017/logs',
         write: 'safe'
-    },
+    }),
     'cheese'
 );
 ```
@@ -218,7 +218,7 @@ log4js.addAppender(
     mongoAppender.appender({
         connectionString: 'localhost:27017/logs',
         layout: 'colored'
-    },
+    }),
     'cheese'
 );
 ```
@@ -253,7 +253,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 [Litixsoft GmbH](http://www.litixsoft.de)
 
 ## License
-Copyright (C) 2013-2015 Litixsoft GmbH <info@litixsoft.de>
+Copyright (C) 2013-2016 Litixsoft GmbH <info@litixsoft.de>
 Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
