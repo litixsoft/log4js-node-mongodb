@@ -34,7 +34,8 @@
     ],
     "main": "lib/index.js",
     "scripts": {
-        "test": "grunt test"
+        "test": "grunt test",
+        "demo": "node ./test/demo.js"
     },
     "directories": {
         "lib": "./lib"
@@ -53,6 +54,6 @@
     "dependencies": {
         "log4js": "^0.6.37",
         "lx-helpers": "^0.5.1",
-        "mongojs": "^2.4.0"
+        "mongodb": "2.1.18"
     }
 }
