@@ -46,12 +46,12 @@
         "grunt-contrib-jshint": "^1.0.0",
         "grunt-jasmine-node": "^0.3.1",
         "grunt-open": "^0.2.3",
-        "istanbul": "^0.4.3",
+        "istanbul": "^0.4.4",
         "jasmine-node": "1.14.5",
         "load-grunt-tasks": "^3.5.0"
     },
     "dependencies": {
-        "log4js": "^0.6.35",
+        "log4js": "^0.6.37",
         "lx-helpers": "^0.5.1",
         "mongojs": "^2.4.0"
     }
