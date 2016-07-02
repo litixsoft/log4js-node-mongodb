@@ -227,6 +227,9 @@ log4js.addAppender(
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
 
 ## Release History
+### v2.0.0
+* Use native mongodb node.js driver instead of mongojs
+
 ### v1.0.0
 * add support for MongoDB 3.x
 
