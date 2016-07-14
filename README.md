@@ -114,6 +114,26 @@ logger.info({id: 1, name: 'wayne'});
 ### Configuration
 There are some options which can by set through the config object.
 
+#### connectionOptions
+The connectionOptions object to pass to the mongo db client.
+
+* | *
+--- | ---
+Type | `object`
+Required | `false`
+Default value | `{}`
+
+```js
+var log4js = require('log4js'),
+    mongoAppender = require('log4js-node-mongodb');
+
+log4js.addAppender(
+    mongoAppender.appender({connectionString: 'localhost:27017/logs',
+                            connectionOptions : {server: {ssl: false, sslValidate: false}}}),
+    'cheese'
+);
+```
+
 #### connectionString
 The connection-string to the mongo db.
 
