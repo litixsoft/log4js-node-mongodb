@@ -128,6 +128,23 @@ describe('log4js-node-mongoappender', function () {
             });
         }, 100);
     });
+    
+    it('should log to the mongo database given connection options', function (done) {
+      log4js.addAppender(sut.configure({ connectionString: 'localhost:27017/test_log4js_mongo', connectionOptions: {server: {ssl: false, sslValidate: false}} }));
+      log4js.getLogger().info('Ready to log!');
+    
+      setTimeout(function () {
+          db.collection('log').find({}).toArray(function (err, res) {
+              expect(err).toBeNull();
+              expect(res.length).toBe(1);
+              expect(res[0].category).toBe('[default]');
+              expect(res[0].data).toBe('Ready to log!');
+              expect(res[0].level).toEqual({ level: 20000, levelStr: 'INFO' });
+    
+              done();
+          });
+      }, 100);
+    });
 
     it('should log to the mongo database with category [default]', function (done) {
         log4js.addAppender(sut.appender({ connectionString: 'localhost:27017/test_log4js_mongo' }));
