@@ -63,7 +63,7 @@ describe('log4js-node-mongoappender', function () {
 
                 done();
             });
-        }, 1000);
+        }, 1500);
     });
 
     it('should log an object to the mongo database when initialized through the configure function', function (done) {
