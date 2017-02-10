@@ -247,6 +247,9 @@ log4js.addAppender(
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
 
 ## Release History
+### v2.2.1
+* Update mongodb driver
+
 ### v2.2.0
 * Fix problem when saving data which includes mongodb ObjectID's
 
@@ -282,7 +285,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 [Litixsoft GmbH](http://www.litixsoft.de)
 
 ## License
-Copyright (C) 2013-2016 Litixsoft GmbH <info@litixsoft.de>
+Copyright (C) 2013-2017 Litixsoft GmbH <info@litixsoft.de>
 Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
