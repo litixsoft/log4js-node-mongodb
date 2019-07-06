@@ -117,11 +117,11 @@ There are some options which can by set through the config object.
 #### connectionOptions
 The connectionOptions object to pass to the mongo db client.
 
-* | *
---- | ---
-Type | `object`
-Required | `false`
-Default value | `{}`
+.|.
+---|---
+Type|`object`
+Required|`false`
+Default value|`{}`
 
 ```js
 var log4js = require('log4js'),
@@ -137,11 +137,11 @@ log4js.addAppender(
 #### connectionString
 The connection-string to the mongo db.
 
-* | *
---- | ---
-Type | `string`
-Required | `true`
-Default value |
+.|.
+---|---
+Type|`string`
+Required|`true`
+Default value|
 
 ```js
 var log4js = require('log4js'),
@@ -156,11 +156,11 @@ log4js.addAppender(
 #### collectionName
 The name of the mongo db collection where the logs are stored.
 
-* | *
---- | ---
-Type | `string`
-Required | `false`
-Default value | `'log'`
+.|.
+---|---
+Type|`string`
+Required|`false`
+Default value|`'log'`
 
 ```js
 var log4js = require('log4js'),
@@ -178,19 +178,19 @@ log4js.addAppender(
 #### write
 The write mode of the mongo db insert operation. With this option you have control over the [write concern](http://docs.mongodb.org/manual/core/write-concern/) of mongo db.
 
-* | *
---- | ---
-Type | `string`
-Required | `false`
-Default value | `'fast'`
+.|.
+---|---
+Type|`string`
+Required|`false`
+Default value|`'fast'`
 
 There are 3 options available. The default value is 'fast'.
 
-* | mongo options object | error logging
---- | --- | ---
-fast | `{w: 0}` | `no`
-normal | `{w: 1}` | `yes`
-safe | `{w: 1, journal: true}` | `yes`
+.|mongo options object|error logging
+---|---|---
+fast|`{w: 0}`|`no`
+normal|`{w: 1}`|`yes`
+safe|`{w: 1, journal: true}`|`yes`
 
 ```js
 var log4js = require('log4js'),
@@ -224,11 +224,11 @@ log4js.addAppender(
 #### layout
 The log4js-node layout which is used when logging a string. ([log4js-node layouts](https://github.com/nomiddlename/log4js-node/wiki/Layouts))
 
-* | *
---- | ---
-Type | `string`
-Required | `false`
-Default value | `'messagePassThroughLayout'`
+.|.
+---|---
+Type|`string`
+Required|`false`
+Default value|`'messagePassThroughLayout'`
 
 ```js
 var log4js = require('log4js'),
