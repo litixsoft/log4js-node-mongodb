@@ -56,6 +56,6 @@
     "dependencies": {
         "log4js": "^2",
         "lx-helpers": "^0.5.1",
-        "mongodb": "^2.2.5"
+        "mongodb": "^3.6.1"
     }
 }
